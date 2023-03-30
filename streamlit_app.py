@@ -39,7 +39,7 @@ def main():
     st.title("OpenAI GPT 作文小助手\nOpenAI GPT Cover Letter Generator")
     st.markdown("根据你的作文要求，由 OpenAI GPT 帮助你生成一篇文章。")
     
-    # Get user input
+    # Get user input1
     user_profile = st.text_area("输入你的作文标题:")
     job_description = st.text_area("输入你的作文字数、语言等要求:")
     prompt = (f"写一篇小作文:\n{job_description}\n\n作文要求:\n{user_profile}")
