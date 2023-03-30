@@ -9,11 +9,18 @@ openai.api_key = st.secrets["API_Key"]
 
 # 嵌入HTML代码
 html_code = """
-<head>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1734224087399502"
-         crossorigin="anonymous"></script>
-    <p style='font-size: 18px;'>这里嵌入了广告。</p >
-</head>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1734224087399502"
+     crossorigin="anonymous"></script>
+<!-- 测试 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-1734224087399502"
+     data-ad-slot="1628847602"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 """
 
 
