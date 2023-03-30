@@ -29,20 +29,14 @@ html_code = """
 """
 
 def inject_ga():
-    GA_ID = "google_analytics"
+    GA_ID = "ca-pub-1734224087399502"
 
     # Note: Please replace the id from G-XXXXXXXXXX to whatever your
     # web application's id is. You will find this in your Google Analytics account
     
     GA_JS = """
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-XXXXXXXXXX');
-    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1734224087399502"
+     crossorigin="anonymous"></script>
     """
 
     # Insert the script in the head tag of the static template inside your virtual
