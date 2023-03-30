@@ -12,7 +12,7 @@ html_code = """
 <h1 style='color: blue;'>这是一个标题</h1>
 <p style='font-size: 18px;'>这是一个段落。</p >
 """
-
+st.write(html_code, unsafe_allow_html=True)
 
 def generate_cover_letter(prompt, model, temperature, max_tokens):
     completions = openai.Completion.create(
@@ -42,8 +42,6 @@ def generate_3(prompt, model, temperature, max_tokens):
 	return message
 
 def main():
-    #st.write(html_code, unsafe_allow_html=True)
-
     st.set_page_config(page_title="作文灵感生成器", page_icon=":guardsman:", layout="wide")
     st.title("OpenAI GPT 作文小助手\nOpenAI GPT Cover Letter Generator")
     st.markdown("根据你的作文要求，由 OpenAI GPT 帮助你生成一篇文章。")
