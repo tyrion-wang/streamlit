@@ -37,7 +37,7 @@ def generate_3(prompt, model, temperature, max_tokens):
 	return message
 
 def main():
-    completions.html("")    
+    completions    
 
     st.set_page_config(page_title="作文灵感生成器", page_icon=":guardsman:", layout="wide")
     st.title("OpenAI GPT 作文小助手\nOpenAI GPT Cover Letter Generator")
