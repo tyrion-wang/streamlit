@@ -31,7 +31,7 @@ def generate_3(prompt, model, temperature, max_tokens):
 	    ]
 	)
 	message = completions.choices[0].text
-    return message
+	return message
 
 def main():
     st.set_page_config(page_title="作文灵感生成器", page_icon=":guardsman:", layout="wide")
