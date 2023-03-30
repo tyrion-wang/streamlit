@@ -20,6 +20,19 @@ def generate_cover_letter(prompt, model, temperature, max_tokens):
     message = completions.choices[0].text
     return message
 
+def generate_3(prompt, model, temperature, max_tokens):
+	openai.ChatCompletion.create(
+  		model=model,
+	  	messages=[
+	        {"role": "system", "content": "You are a helpful assistant."},
+	        {"role": "user", "content": "Who won the world series in 2020?"},
+	        {"role": "assistant", "content": "The Los Angeles Dodgers won the World Series in 2020."},
+	        {"role": "user", "content": "Where was it played?"}
+	    ]
+	)
+	message = completions.choices[0].text
+    return message
+
 def main():
     st.set_page_config(page_title="作文灵感生成器", page_icon=":guardsman:", layout="wide")
     st.title("OpenAI GPT 作文小助手\nOpenAI GPT Cover Letter Generator")
@@ -35,7 +48,7 @@ def main():
     max_tokens = st.slider("选择作文字数 Choose Max Tokens:", 50, 500, 1000)
 
     if st.button("生成作文 Generate"):
-        cover_letter = generate_cover_letter(prompt, model, temperature, max_tokens)
+        cover_letter = generate_3(prompt, model, temperature, max_tokens)
         st.success("大功告成！作文已经生成了！\n Success! Your Cover Letter is Ready")
         st.markdown(cover_letter)
         st.markdown("**点击以下按钮下载作文 Click the Button to Download**")
