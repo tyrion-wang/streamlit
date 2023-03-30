@@ -1,7 +1,6 @@
 import openai
 import streamlit as st
 import pathlib
-import BeautifulSoup
 import logging
 import shutil
 
