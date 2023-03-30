@@ -1,2 +1,1 @@
 openai==0.26.3
-google-api-python-client==1.2
