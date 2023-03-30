@@ -29,15 +29,18 @@ html_code = """
 """
 
 def inject_ga():
-    GA_ID = "ca-pub-1734224087399502"
+    GA_ID = "G-XXXXXXXXXX"
 
     # Note: Please replace the id from G-XXXXXXXXXX to whatever your
     # web application's id is. You will find this in your Google Analytics account
     
     GA_JS = """
-    <p style='font-size: 18px;'>插入谷歌广告。</p >
+    <p style='font-size: 18px;'>插入谷歌广告!</p >
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1734224087399502"
      crossorigin="anonymous"></script>
+    <script>
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
     """
 
     # Insert the script in the head tag of the static template inside your virtual
