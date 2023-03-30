@@ -30,7 +30,7 @@ def generate_3(prompt, model, temperature, max_tokens):
 	        {"role": "user", "content": "Where was it played?"}
 	    ]
 	)
-	message = completions.choices[0].text
+	message = completions.choices[0].message.content
 	return message
 
 def main():
