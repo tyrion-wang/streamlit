@@ -21,6 +21,7 @@ html_code = """
 <script>
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
+<p style='font-size: 18px;'>这是一个广告位</p >
 """
 
 
