@@ -1,1 +1,2 @@
 openai==0.27.2
+beautifulsoup4==4.9.0
