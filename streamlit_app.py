@@ -1,12 +1,17 @@
 import openai
 import streamlit as st
-import streamlit.components.v1 as components
 
 # import pyperclip
 
 # Step 1: Obtain OpenAI API key
 openai.api_key = st.secrets["API_Key"]
 # openai.api_key = ""
+
+# 嵌入HTML代码
+html_code = """
+<h1 style='color: blue;'>这是一个标题</h1>
+<p style='font-size: 18px;'>这是一个段落。</p >
+"""
 
 
 def generate_cover_letter(prompt, model, temperature, max_tokens):
@@ -37,7 +42,7 @@ def generate_3(prompt, model, temperature, max_tokens):
 	return message
 
 def main():
-    completions    
+    st.write(html_code, unsafe_allow_html=True)  
 
     st.set_page_config(page_title="作文灵感生成器", page_icon=":guardsman:", layout="wide")
     st.title("OpenAI GPT 作文小助手\nOpenAI GPT Cover Letter Generator")
