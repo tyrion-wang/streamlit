@@ -13,9 +13,6 @@ html_code = """
      crossorigin="anonymous"></script>
 """
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1734224087399502"
-     crossorigin="anonymous"></script>
-
 
 def generate_cover_letter(prompt, model, temperature, max_tokens):
     completions = openai.Completion.create(
