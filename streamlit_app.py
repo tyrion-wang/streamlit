@@ -21,7 +21,7 @@ def generate_cover_letter(prompt, model, temperature, max_tokens):
     return message
 
 def generate_3(prompt, model, temperature, max_tokens):
-	openai.ChatCompletion.create(
+	completions = openai.ChatCompletion.create(
   		model=model,
 	  	messages=[
 	        {"role": "system", "content": "You are a helpful assistant."},
