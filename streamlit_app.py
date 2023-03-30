@@ -30,7 +30,7 @@ def main():
     job_description = st.text_area("输入你的作文字数、语言等要求:")
     prompt = (f"写一篇小作文:\n{job_description}\n\n作文要求:\n{user_profile}")
     # prompt = (f"请用中文帮我写一封求职信，我的能力描述以及工作经验：\n{user_profile}\n\n职位描述：\n{job_description}")
-    model = "text-davinci-003"
+    model = "gpt-3.5-turbo"
     temperature = st.slider("选择随机值 Choose Temperature:", 0.0, 1.0, 0.7)
     max_tokens = st.slider("选择作文字数 Choose Max Tokens:", 50, 500, 1000)
 
