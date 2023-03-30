@@ -23,6 +23,9 @@ def generate_cover_letter(prompt, model, temperature, max_tokens):
 def generate_3(prompt, model, temperature, max_tokens):
 	completions = openai.ChatCompletion.create(
   		model=model,
+  		temperature=temperature,
+        max_tokens=max_tokens,
+        top_p=1,
 	  	messages=[
 	        {"role": "system", "content": "你是一个作文写作者."},
 	        {"role": "user", "content": prompt},
