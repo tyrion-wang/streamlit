@@ -11,7 +11,7 @@ openai.api_key = st.secrets["API_Key"]
 html_code = """
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1734224087399502"
      crossorigin="anonymous"></script>
-<p style='font-size: 18px;'>这是一个段落。</p >
+<p style='font-size: 18px;'>这里嵌入了广告。</p >
 """
 
 
