@@ -1,5 +1,9 @@
 import openai
 import streamlit as st
+import pathlib
+from bs4 import BeautifulSoup
+import logging
+import shutil
 
 # import pyperclip
 
@@ -23,6 +27,37 @@ html_code = """
 </script>
 <p style='font-size: 18px;'>这是一个广告位</p >
 """
+
+def inject_ga():
+    GA_ID = "google_analytics"
+
+    # Note: Please replace the id from G-XXXXXXXXXX to whatever your
+    # web application's id is. You will find this in your Google Analytics account
+    
+    GA_JS = """
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    """
+
+    # Insert the script in the head tag of the static template inside your virtual
+    index_path = pathlib.Path(st.__file__).parent / "static" / "index.html"
+    logging.info(f'editing {index_path}')
+    soup = BeautifulSoup(index_path.read_text(), features="html.parser")
+    if not soup.find(id=GA_ID):  # if cannot find tag
+        bck_index = index_path.with_suffix('.bck')
+        if bck_index.exists():
+            shutil.copy(bck_index, index_path)  # recover from backup
+        else:
+            shutil.copy(index_path, bck_index)  # keep a backup
+        html = str(soup)
+        new_html = html.replace('<head>', '<head>\n' + GA_JS)
+        index_path.write_text(new_html)
 
 
 def generate_cover_letter(prompt, model, temperature, max_tokens):
@@ -57,7 +92,7 @@ def main():
     st.title("OpenAI GPT 作文小助手\nOpenAI GPT Cover Letter Generator")
     st.markdown("根据你的作文要求，由 OpenAI GPT 帮助你生成一篇文章。")
     st.write(html_code, unsafe_allow_html=True)
-
+    inject_ga()
     # Get user input
     user_profile = st.text_area("输入你的作文标题:")
     job_description = st.text_area("输入你的作文字数、语言等要求:")
