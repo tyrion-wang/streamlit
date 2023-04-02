@@ -6,9 +6,26 @@ import logging
 import shutil
 
 # import pyperclip
+def get_openai_key():
+    """Returns the OpenAI API key from environment variables."""
+    openai_key = None
 
+    # 优先从Streamlit环境变量中获取密钥
+    if 'OPENAI_API_KEY' in st.secrets:
+        openai_key = st.secrets["OPENAI_API_KEY"]
+
+    # 如果未设置Streamlit环境变量，则尝试从系统环境变量中获取密钥
+    elif os.name == 'nt': # Windows
+        if 'OPENAI_API_KEY' in os.environ:
+            openai_key = os.environ['OPENAI_API_KEY']
+    elif os.name == 'posix': # macOS
+        if 'OPENAI_API_KEY' in os.environ:
+            openai_key = os.environ['OPENAI_API_KEY']
+
+    return openai_key
+    
 # Step 1: Obtain OpenAI API key
-openai.api_key = st.secrets["API_Key"]
+openai.api_key = get_openai_key()
 
 # 嵌入HTML代码
 html_code = """
