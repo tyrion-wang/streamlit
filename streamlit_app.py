@@ -1,3 +1,4 @@
+import os
 import openai
 import streamlit as st
 import pathlib
@@ -10,20 +11,18 @@ def get_openai_key():
     """Returns the OpenAI API key from environment variables."""
     openai_key = None
 
-    # 优先从Streamlit环境变量中获取密钥
-    if 'OPENAI_API_KEY' in st.secrets:
-        openai_key = st.secrets["OPENAI_API_KEY"]
-
     # 如果未设置Streamlit环境变量，则尝试从系统环境变量中获取密钥
-    elif os.name == 'nt': # Windows
+    if os.name == 'nt': # Windows
         if 'OPENAI_API_KEY' in os.environ:
             openai_key = os.environ['OPENAI_API_KEY']
     elif os.name == 'posix': # macOS
         if 'OPENAI_API_KEY' in os.environ:
             openai_key = os.environ['OPENAI_API_KEY']
+    elif 'OPENAI_API_KEY' in st.secrets:
+        openai_key = st.secrets["OPENAI_API_KEY"]
 
     return openai_key
-    
+
 # Step 1: Obtain OpenAI API key
 openai.api_key = get_openai_key()
 
@@ -107,8 +106,6 @@ def main():
     st.title("OpenAI GPT 作文小助手\nOpenAI GPT Cover Letter Generator")
     st.markdown("根据你的作文要求，由 OpenAI GPT 帮助你生成一篇文章。")
     st.write(html_code, unsafe_allow_html=True)
-    if 'API_Key' in st.secrets:
-        st.write("找到")
     
     inject_ga()
     # Get user input
