@@ -90,7 +90,7 @@ def main():
     st.title("OpenAI GPT 作文小助手\nOpenAI GPT Cover Letter Generator")
     st.markdown("根据你的作文要求，由 OpenAI GPT 帮助你生成一篇文章。")
     st.write(html_code, unsafe_allow_html=True)
-    if 'API_Key' in os.environ:
+    if 'API_Key' in st.secrets:
         st.write("找到"+ st.secrets)
     
     inject_ga()
