@@ -8,8 +8,8 @@ import shutil
 # import pyperclip
 
 # Step 1: Obtain OpenAI API key
-openai.api_key = st.secrets["API_Key"]
-# openai.api_key = ""
+#openai.api_key = st.secrets["API_Key"]
+openai.api_key = "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"
 
 # 嵌入HTML代码
 html_code = """
