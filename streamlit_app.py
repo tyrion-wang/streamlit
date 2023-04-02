@@ -24,9 +24,7 @@ def get_openai_key():
     return openai_key
 
 # Step 1: Obtain OpenAI API key
-#openai.api_key = get_openai_key()
-#openai.api_key = st.secrets["OPENAI_API_KEY"]
-openai.api_key = "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"
+openai.api_key = get_openai_key()
 
 
 
