@@ -24,7 +24,8 @@ def get_openai_key():
     return openai_key
 
 # Step 1: Obtain OpenAI API key
-openai.api_key = get_openai_key()
+#openai.api_key = get_openai_key()
+openai.api_key = st.secrets["OPENAI_API_KEY"]
 
 # 嵌入HTML代码
 html_code = """
