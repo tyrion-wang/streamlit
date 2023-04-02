@@ -8,8 +8,7 @@ import shutil
 # import pyperclip
 
 # Step 1: Obtain OpenAI API key
-#openai.api_key = st.secrets["API_Key"]
-openai.api_key = "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"
+openai.api_key = st.secrets["API_Key"]
 
 # 嵌入HTML代码
 html_code = """
@@ -91,6 +90,7 @@ def main():
     st.title("OpenAI GPT 作文小助手\nOpenAI GPT Cover Letter Generator")
     st.markdown("根据你的作文要求，由 OpenAI GPT 帮助你生成一篇文章。")
     st.write(html_code, unsafe_allow_html=True)
+    st.write(st.secrets)
     inject_ga()
     # Get user input
     user_profile = st.text_area("输入你的作文标题:")
